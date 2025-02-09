@@ -18,3 +18,16 @@ cards.forEach((card) => {
     },
   });
 });
+// gsap.set("#myPath", { strokeDasharray: 100, strokeDashoffset: 100 });
+
+let path = document.querySelector("#myPath");
+let pathLength = path.getTotalLength();
+gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+gsap.to(path, {
+  strokeDashoffset: 0,
+  duration: 10,
+  ease: "power2.out",
+  repeat: -1,
+  repeatRefresh: true,
+  yoyo: true,
+});
